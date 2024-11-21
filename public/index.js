@@ -1,7 +1,5 @@
 import { LoyaltyUser } from "./enums";
-const reviewTotalDisplay = document.querySelector("#reviews");
-const returningUserDisplay = document.querySelector("#returning-user");
-const userNameDisplay = document.querySelector("#user");
+import { showReviewTotal, populateUser } from "./utils";
 const propertyContainer = document.querySelector(".properties");
 const reviews = [
     {
@@ -23,18 +21,6 @@ const reviews = [
         date: "27-03-2021",
     },
 ];
-function showReviewTotal(value, reviewer, isLoyalty) {
-    if (!reviewTotalDisplay)
-        return;
-    const iconDisplay = isLoyalty === LoyaltyUser.GOLD_USER ? "⭐" : "";
-    reviewTotalDisplay.innerHTML =
-        "review total " +
-            value.toString() +
-            "| last reviewed by " +
-            reviewer +
-            " " +
-            iconDisplay;
-}
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 const you = {
     firstName: "Bobby",
@@ -43,14 +29,6 @@ const you = {
     age: 35,
     stayedAt: ["florida-home", "oman-flat", "tokyo-bungalow"],
 };
-function populateUser(isReturning, userName) {
-    if (!returningUserDisplay || !userNameDisplay)
-        return;
-    if (isReturning) {
-        returningUserDisplay.innerHTML = "back";
-    }
-    userNameDisplay.innerHTML = userName;
-}
 populateUser(you.isReturning, you.firstName);
 const properties = [
     {
