@@ -19,10 +19,11 @@ const reviews = [
         date: "27-03-2021",
     },
 ];
-function showReviewTotal(value) {
+function showReviewTotal(value, reviewer) {
     if (!reviewTotalDisplay)
         return;
-    reviewTotalDisplay.innerHTML = "review total " + value.toString();
+    reviewTotalDisplay.innerHTML =
+        "review total " + value.toString() + "| last reviewed by " + reviewer;
 }
-showReviewTotal(reviews.length);
+showReviewTotal(reviews.length, reviews[0].name);
 export {};
