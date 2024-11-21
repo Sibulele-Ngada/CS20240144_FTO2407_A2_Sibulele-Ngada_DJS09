@@ -1,5 +1,6 @@
 import { Review, User, Property } from "./interfaces.js";
 import { Permissions, LoyaltyUser } from "./enums.js";
+import { MainProperty } from "./classes.js";
 import {
   showReviewTotal,
   populateUser,
@@ -145,4 +146,26 @@ if (!button) {
   console.error("button missing");
 } else {
   button.addEventListener("click", () => addReviews(reviews));
+}
+
+let yourMainProperty = new MainProperty(
+  "../src/images/italian-property.jpg",
+  "Italian House",
+  [
+    {
+      name: "Olive",
+      stars: 5,
+      loyaltyUser: LoyaltyUser.GOLD_USER,
+      date: "12-04-2021",
+    },
+  ]
+);
+
+const mainImageContainer = document.querySelector(".main-image");
+const image = document.createElement("img");
+image.setAttribute("src", yourMainProperty.src);
+if (!mainImageContainer) {
+  console.error("Missing html");
+} else {
+  mainImageContainer.appendChild(image);
 }

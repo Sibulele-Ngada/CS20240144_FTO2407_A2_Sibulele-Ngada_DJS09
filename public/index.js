@@ -1,4 +1,5 @@
 import { Permissions, LoyaltyUser } from "./enums.js";
+import { MainProperty } from "./classes.js";
 import { showReviewTotal, populateUser, showDetails, getTopTwoReviews, } from "./utils.js";
 const propertyContainer = document.querySelector(".properties");
 const footer = document.querySelector(".footer");
@@ -125,4 +126,21 @@ if (!button) {
 }
 else {
     button.addEventListener("click", () => addReviews(reviews));
+}
+let yourMainProperty = new MainProperty("../src/images/italian-property.jpg", "Italian House", [
+    {
+        name: "Olive",
+        stars: 5,
+        loyaltyUser: LoyaltyUser.GOLD_USER,
+        date: "12-04-2021",
+    },
+]);
+const mainImageContainer = document.querySelector(".main-image");
+const image = document.createElement("img");
+image.setAttribute("src", yourMainProperty.src);
+if (!mainImageContainer) {
+    console.error("Missing html");
+}
+else {
+    mainImageContainer.appendChild(image);
 }
