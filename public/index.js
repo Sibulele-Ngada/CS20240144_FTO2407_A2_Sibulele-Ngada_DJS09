@@ -62,7 +62,7 @@ const properties = [
             code: 45632,
             country: "Colombia",
         },
-        contact: "marywinkle@gmail.com",
+        contact: [+112343823978921, "marywinkle@gmail.com"],
         isAvailable: true,
     },
     {
@@ -75,7 +75,7 @@ const properties = [
             code: 343903,
             country: "Poland",
         },
-        contact: "garydavis@hotmail.com",
+        contact: [+1298239028490830, "garydavis@hotmail.com"],
         isAvailable: false,
     },
     {
@@ -88,7 +88,7 @@ const properties = [
             code: 35433,
             country: "United Kingdom",
         },
-        contact: "andyluger@aol.com",
+        contact: [+34829374892553, "andyluger@aol.com"],
         isAvailable: true,
     },
 ];
