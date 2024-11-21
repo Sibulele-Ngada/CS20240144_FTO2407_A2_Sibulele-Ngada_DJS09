@@ -12,3 +12,17 @@ export interface User {
   age: number;
   stayedAt: string[];
 }
+
+export interface Property {
+  image: string;
+  title: string;
+  price: number;
+  location: {
+    firstLine: string;
+    city: string;
+    code: number;
+    country: string;
+  };
+  contact: string;
+  isAvailable: boolean;
+}
