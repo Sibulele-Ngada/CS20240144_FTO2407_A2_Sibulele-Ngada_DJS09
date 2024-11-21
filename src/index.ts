@@ -1,6 +1,6 @@
-import { Review, User, Property } from "./interfaces";
-import { Permissions, LoyaltyUser } from "./enums";
-import { showReviewTotal, populateUser } from "./utils";
+import { Review, User, Property } from "./interfaces.js";
+import { Permissions, LoyaltyUser } from "./enums.js";
+import { showReviewTotal, populateUser } from "./utils.js";
 
 const propertyContainer = document.querySelector(".properties");
 

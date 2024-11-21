@@ -1,5 +1,5 @@
-import { LoyaltyUser } from "./enums";
-import { showReviewTotal, populateUser } from "./utils";
+import { LoyaltyUser } from "./enums.js";
+import { showReviewTotal, populateUser } from "./utils.js";
 const propertyContainer = document.querySelector(".properties");
 const reviews = [
     {
