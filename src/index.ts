@@ -1,4 +1,4 @@
-import { Review } from "./interfaces";
+import { Review, User } from "./interfaces";
 
 const reviewTotalDisplay = document.querySelector("#reviews");
 const returningUserDisplay = document.querySelector("#returning-user");
@@ -40,9 +40,11 @@ function showReviewTotal(value: number, reviewer: string, isLoyalty: boolean) {
 
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 
-const you = {
-  userName: "Bobby",
+const you: User = {
+  firstName: "Bobby",
+  lastName: "Brown",
   isReturning: true,
+  age: 35,
 };
 
 function populateUser(isReturning: boolean, userName: string) {
@@ -54,4 +56,4 @@ function populateUser(isReturning: boolean, userName: string) {
   userNameDisplay.innerHTML = userName;
 }
 
-populateUser(you.isReturning, you.userName);
+populateUser(you.isReturning, you.firstName);

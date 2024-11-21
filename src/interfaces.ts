@@ -4,3 +4,10 @@ export interface Review {
   loyaltyUser: boolean;
   date: string;
 }
+
+export interface User {
+  firstName: string;
+  lastName: string;
+  isReturning: boolean;
+  age: number;
+}
