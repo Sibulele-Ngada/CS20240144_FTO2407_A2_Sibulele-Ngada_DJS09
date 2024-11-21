@@ -10,4 +10,5 @@ export interface User {
   lastName: string;
   isReturning: boolean;
   age: number;
+  stayedAt: string[];
 }
