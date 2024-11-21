@@ -1,7 +1,7 @@
 const reviewTotalDisplay = document.querySelector("#reviews");
 const returningUserDisplay = document.querySelector("#returning-user");
 const userNameDisplay = document.querySelector("#user");
-import { LoyaltyUser } from "./enums.js";
+import { LoyaltyUser, Permissions } from "./enums.js";
 
 export function showReviewTotal(
   value: number,
@@ -12,8 +12,9 @@ export function showReviewTotal(
 
   const iconDisplay = isLoyalty ? "⭐" : "";
   reviewTotalDisplay.innerHTML =
-    "review total " +
     value.toString() +
+    " Review" +
+    makeMultiple(value) +
     "| last reviewed by " +
     reviewer +
     " " +
@@ -27,4 +28,22 @@ export function populateUser(isReturning: boolean, userName: string) {
     returningUserDisplay.innerHTML = "back";
   }
   userNameDisplay.innerHTML = userName;
+}
+
+export function showDetails(
+  authorityStatus: boolean | Permissions,
+  element: HTMLDivElement,
+  price: number
+) {
+  if (authorityStatus) {
+    const priceDisplay = document.createElement("div");
+    priceDisplay.innerHTML = price.toString() + "/night";
+    element.appendChild(priceDisplay);
+  }
+}
+
+export function makeMultiple(value: number): string {
+  if (value > 1 || value == 0) {
+    return "s";
+  } else return "";
 }

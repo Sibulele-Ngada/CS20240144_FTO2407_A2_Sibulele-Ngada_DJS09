@@ -1,5 +1,5 @@
 import { Permissions, LoyaltyUser } from "./enums.js";
-import { showReviewTotal, populateUser } from "./utils.js";
+import { showReviewTotal, populateUser, showDetails } from "./utils.js";
 const propertyContainer = document.querySelector(".properties");
 const footer = document.querySelector(".footer");
 const reviews = [
@@ -73,13 +73,6 @@ const properties = [
         isAvailable: true,
     },
 ];
-function showDetails(authorityStatus, element, price) {
-    if (authorityStatus) {
-        const priceDisplay = document.createElement("div");
-        priceDisplay.innerHTML = price.toString() + "/night";
-        element.appendChild(priceDisplay);
-    }
-}
 for (const property of properties) {
     if (!propertyContainer)
         break;

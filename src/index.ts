@@ -1,6 +1,6 @@
 import { Review, User, Property } from "./interfaces.js";
 import { Permissions, LoyaltyUser } from "./enums.js";
-import { showReviewTotal, populateUser } from "./utils.js";
+import { showReviewTotal, populateUser, showDetails } from "./utils.js";
 
 const propertyContainer = document.querySelector(".properties");
 const footer = document.querySelector(".footer");
@@ -80,18 +80,6 @@ const properties: Property[] = [
     isAvailable: true,
   },
 ];
-
-function showDetails(
-  authorityStatus: boolean | Permissions,
-  element: HTMLDivElement,
-  price: number
-) {
-  if (authorityStatus) {
-    const priceDisplay = document.createElement("div");
-    priceDisplay.innerHTML = price.toString() + "/night";
-    element.appendChild(priceDisplay);
-  }
-}
 
 for (const property of properties) {
   if (!propertyContainer) break;

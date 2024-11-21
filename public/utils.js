@@ -6,8 +6,9 @@ export function showReviewTotal(value, reviewer, isLoyalty) {
         return;
     const iconDisplay = isLoyalty ? "⭐" : "";
     reviewTotalDisplay.innerHTML =
-        "review total " +
-            value.toString() +
+        value.toString() +
+            " Review" +
+            makeMultiple(value) +
             "| last reviewed by " +
             reviewer +
             " " +
@@ -20,4 +21,18 @@ export function populateUser(isReturning, userName) {
         returningUserDisplay.innerHTML = "back";
     }
     userNameDisplay.innerHTML = userName;
+}
+export function showDetails(authorityStatus, element, price) {
+    if (authorityStatus) {
+        const priceDisplay = document.createElement("div");
+        priceDisplay.innerHTML = price.toString() + "/night";
+        element.appendChild(priceDisplay);
+    }
+}
+export function makeMultiple(value) {
+    if (value > 1 || value == 0) {
+        return "s";
+    }
+    else
+        return "";
 }
