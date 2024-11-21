@@ -3,7 +3,7 @@ const returningUserDisplay = document.querySelector("#returning-user");
 const userNameDisplay = document.querySelector("#user");
 export function showReviewTotal(value, reviewer, isLoyalty) {
     if (!reviewTotalDisplay)
-        return console.log("no review");
+        return;
     const iconDisplay = isLoyalty ? "⭐" : "";
     reviewTotalDisplay.innerHTML =
         "review total " +

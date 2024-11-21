@@ -1,4 +1,4 @@
-import { LoyaltyUser } from "./enums.js";
+import { Permissions, LoyaltyUser } from "./enums.js";
 import { showReviewTotal, populateUser } from "./utils.js";
 const propertyContainer = document.querySelector(".properties");
 const reviews = [
@@ -25,6 +25,7 @@ showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 const you = {
     firstName: "Bobby",
     lastName: "Brown",
+    permissions: Permissions.ADMIN,
     isReturning: true,
     age: 35,
     stayedAt: ["florida-home", "oman-flat", "tokyo-bungalow"],
@@ -71,6 +72,13 @@ const properties = [
         isAvailable: true,
     },
 ];
+function showDetails(authorityStatus, element, price) {
+    if (authorityStatus) {
+        const priceDisplay = document.createElement("div");
+        priceDisplay.innerHTML = price.toString() + "/night";
+        element.appendChild(priceDisplay);
+    }
+}
 for (const property of properties) {
     if (!propertyContainer)
         break;
@@ -81,4 +89,5 @@ for (const property of properties) {
     image.setAttribute("src", property.image);
     card.appendChild(image);
     propertyContainer.appendChild(card);
+    showDetails(you.permissions, card, property.price);
 }

@@ -30,6 +30,7 @@ showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 const you: User = {
   firstName: "Bobby",
   lastName: "Brown",
+  permissions: Permissions.ADMIN,
   isReturning: true,
   age: 35,
   stayedAt: ["florida-home", "oman-flat", "tokyo-bungalow"],
@@ -79,6 +80,18 @@ const properties: Property[] = [
   },
 ];
 
+function showDetails(
+  authorityStatus: boolean | Permissions,
+  element: HTMLDivElement,
+  price: number
+) {
+  if (authorityStatus) {
+    const priceDisplay = document.createElement("div");
+    priceDisplay.innerHTML = price.toString() + "/night";
+    element.appendChild(priceDisplay);
+  }
+}
+
 for (const property of properties) {
   if (!propertyContainer) break;
 
@@ -89,4 +102,5 @@ for (const property of properties) {
   image.setAttribute("src", property.image);
   card.appendChild(image);
   propertyContainer.appendChild(card);
+  showDetails(you.permissions, card, property.price);
 }

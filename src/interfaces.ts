@@ -1,4 +1,4 @@
-import { LoyaltyUser } from "./enums";
+import { LoyaltyUser, Permissions } from "./enums.js";
 
 export interface Review {
   name: string;
@@ -10,6 +10,7 @@ export interface Review {
 export interface User {
   firstName: string;
   lastName: string;
+  permissions: Permissions;
   isReturning: boolean;
   age: number;
   stayedAt: string[];
