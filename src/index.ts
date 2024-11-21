@@ -1,6 +1,7 @@
 import { Review, User, Property } from "./interfaces.js";
 import { Permissions, LoyaltyUser } from "./enums.js";
 import { MainProperty } from "./classes.js";
+import { Price } from "./types.js";
 import {
   showReviewTotal,
   populateUser,
@@ -65,7 +66,7 @@ const properties: Property[] = [
   {
     image: "../src/images/poland-property.jpg",
     title: "Polish Cottage",
-    price: 34,
+    price: 30,
     location: {
       firstLine: "no 23",
       city: "Gdansk",
@@ -78,7 +79,7 @@ const properties: Property[] = [
   {
     image: "../src/images/london-property.jpg",
     title: "London Flat",
-    price: 23,
+    price: 25,
     location: {
       firstLine: "flat 15",
       city: "London",

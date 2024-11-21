@@ -1,5 +1,5 @@
 import { LoyaltyUser, Permissions } from "./enums.js";
-import { Country } from "./types.js";
+import { Country, Price } from "./types.js";
 
 export interface Review {
   name: string;
@@ -20,7 +20,7 @@ export interface User {
 export interface Property {
   image: string;
   title: string;
-  price: number;
+  price: Price;
   location: {
     firstLine: string;
     city: string;
