@@ -1,6 +1,7 @@
 import { Permissions, LoyaltyUser } from "./enums.js";
 import { showReviewTotal, populateUser } from "./utils.js";
 const propertyContainer = document.querySelector(".properties");
+const footer = document.querySelector(".footer");
 const reviews = [
     {
         name: "Sheia",
@@ -90,4 +91,17 @@ for (const property of properties) {
     card.appendChild(image);
     propertyContainer.appendChild(card);
     showDetails(you.permissions, card, property.price);
+}
+let currentLocation = ["London", "11.03", 17];
+if (!footer) {
+    console.error("No footer");
+}
+else {
+    footer.innerHTML =
+        currentLocation[0] +
+            " " +
+            currentLocation[1] +
+            " " +
+            currentLocation[2] +
+            "°";
 }
