@@ -1,4 +1,5 @@
 import { Review, User, Property } from "./interfaces";
+import { Permissions, LoyaltyUser } from "./enums";
 
 const reviewTotalDisplay = document.querySelector("#reviews");
 const returningUserDisplay = document.querySelector("#returning-user");
@@ -9,27 +10,31 @@ const reviews: Review[] = [
   {
     name: "Sheia",
     stars: 5,
-    loyaltyUser: true,
+    loyaltyUser: LoyaltyUser.GOLD_USER,
     date: "01-04-2021",
   },
   {
     name: "Andrzej",
     stars: 3,
-    loyaltyUser: false,
+    loyaltyUser: LoyaltyUser.BRONZE_USER,
     date: "28-03-2021",
   },
   {
     name: "Omar",
     stars: 4,
-    loyaltyUser: true,
+    loyaltyUser: LoyaltyUser.SILVER_USER,
     date: "27-03-2021",
   },
 ];
 
-function showReviewTotal(value: number, reviewer: string, isLoyalty: boolean) {
+function showReviewTotal(
+  value: number,
+  reviewer: string,
+  isLoyalty: LoyaltyUser
+) {
   if (!reviewTotalDisplay) return;
 
-  const iconDisplay = isLoyalty ? "⭐" : "";
+  const iconDisplay = isLoyalty === LoyaltyUser.GOLD_USER ? "⭐" : "";
   reviewTotalDisplay.innerHTML =
     "review total " +
     value.toString() +
