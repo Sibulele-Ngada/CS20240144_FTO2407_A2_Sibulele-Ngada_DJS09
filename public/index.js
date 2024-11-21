@@ -1,4 +1,3 @@
-"use strict";
 const reviewTotalDisplay = document.querySelector("#reviews");
 const reviews = [
     {
@@ -20,3 +19,10 @@ const reviews = [
         date: "27-03-2021",
     },
 ];
+function showReviewTotal(value) {
+    if (!reviewTotalDisplay)
+        return;
+    reviewTotalDisplay.innerHTML = "review total " + value.toString();
+}
+showReviewTotal(reviews.length);
+export {};
