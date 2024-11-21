@@ -1,6 +1,8 @@
+import { Review } from "./interfaces";
+
 const reviewTotalDisplay = document.querySelector("#reviews");
 
-const reviews = [
+const reviews: Review[] = [
   {
     name: "Sheia",
     stars: 5,
