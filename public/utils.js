@@ -36,3 +36,7 @@ export function makeMultiple(value) {
     else
         return "";
 }
+export function getTopTwoReviews(reviews) {
+    const sortedReviews = reviews.sort((a, b) => b.stars - a.stars);
+    return sortedReviews.slice(0, 2);
+}

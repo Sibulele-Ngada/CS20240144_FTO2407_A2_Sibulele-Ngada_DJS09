@@ -1,7 +1,9 @@
+import { LoyaltyUser, Permissions } from "./enums.js";
+import { Review } from "./interfaces.js";
+
 const reviewTotalDisplay = document.querySelector("#reviews");
 const returningUserDisplay = document.querySelector("#returning-user");
 const userNameDisplay = document.querySelector("#user");
-import { LoyaltyUser, Permissions } from "./enums.js";
 
 export function showReviewTotal(
   value: number,
@@ -46,4 +48,9 @@ export function makeMultiple(value: number): string {
   if (value > 1 || value == 0) {
     return "s";
   } else return "";
+}
+
+export function getTopTwoReviews(reviews: Review[]): Review[] {
+  const sortedReviews = reviews.sort((a, b) => b.stars - a.stars);
+  return sortedReviews.slice(0, 2);
 }

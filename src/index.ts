@@ -1,9 +1,17 @@
 import { Review, User, Property } from "./interfaces.js";
 import { Permissions, LoyaltyUser } from "./enums.js";
-import { showReviewTotal, populateUser, showDetails } from "./utils.js";
+import {
+  showReviewTotal,
+  populateUser,
+  showDetails,
+  getTopTwoReviews,
+} from "./utils.js";
 
 const propertyContainer = document.querySelector(".properties");
 const footer = document.querySelector(".footer");
+const button = document.querySelector("button");
+const reviewContainer = document.querySelector(".reviews");
+const container = document.querySelector(".container");
 
 const reviews: Review[] = [
   {
@@ -105,4 +113,36 @@ if (!footer) {
     " " +
     currentLocation[2] +
     "°";
+}
+
+let count = 0;
+function addReviews(
+  array: {
+    name: string;
+    stars: number;
+    loyaltyUser: LoyaltyUser;
+    date: string;
+  }[]
+): void {
+  if (!count) {
+    count++;
+    const topTwo = getTopTwoReviews(array);
+    if (!reviewContainer || !container || !button) {
+      console.error("Missing html elements");
+    } else {
+      for (let i = 0; i < topTwo.length; i++) {
+        const card = document.createElement("div");
+        card.classList.add("review-card");
+        card.innerHTML = topTwo[i].stars + " stars from " + topTwo[i].name;
+        reviewContainer.appendChild(card);
+      }
+      container.removeChild(button);
+    }
+  }
+}
+
+if (!button) {
+  console.error("button missing");
+} else {
+  button.addEventListener("click", () => addReviews(reviews));
 }
