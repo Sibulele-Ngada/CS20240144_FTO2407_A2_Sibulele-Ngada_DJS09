@@ -1,4 +1,4 @@
-import { Review, User } from "./interfaces";
+import { Review, User, Property } from "./interfaces";
 
 const reviewTotalDisplay = document.querySelector("#reviews");
 const returningUserDisplay = document.querySelector("#returning-user");
@@ -58,3 +58,45 @@ function populateUser(isReturning: boolean, userName: string) {
 }
 
 populateUser(you.isReturning, you.firstName);
+
+const properties: Property[] = [
+  {
+    image: "",
+    title: "Colombian Shack",
+    price: 45,
+    location: {
+      firstLine: "shack 37",
+      city: "Bogota",
+      code: 45632,
+      country: "Colombia",
+    },
+    contact: "marywinkle@gmail.com",
+    isAvailable: true,
+  },
+  {
+    image: "",
+    title: "Polish Cottage",
+    price: 34,
+    location: {
+      firstLine: "no 23",
+      city: "Gdansk",
+      code: 343903,
+      country: "Poland",
+    },
+    contact: "garydavis@hotmail.com",
+    isAvailable: false,
+  },
+  {
+    image: "",
+    title: "London Flat",
+    price: 23,
+    location: {
+      firstLine: "flat 15",
+      city: "London",
+      code: 35433,
+      country: "United Kingdom",
+    },
+    contact: "andyluger@aol.com",
+    isAvailable: true,
+  },
+];
