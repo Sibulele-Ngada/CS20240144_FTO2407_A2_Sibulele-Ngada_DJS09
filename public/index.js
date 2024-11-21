@@ -1,6 +1,7 @@
 const reviewTotalDisplay = document.querySelector("#reviews");
 const returningUserDisplay = document.querySelector("#returning-user");
 const userNameDisplay = document.querySelector("#user");
+const propertyContainer = document.querySelector(".properties");
 const reviews = [
     {
         name: "Sheia",
@@ -52,7 +53,7 @@ function populateUser(isReturning, userName) {
 populateUser(you.isReturning, you.firstName);
 const properties = [
     {
-        image: "",
+        image: "../src/images/colombia-property.jpg",
         title: "Colombian Shack",
         price: 45,
         location: {
@@ -65,7 +66,7 @@ const properties = [
         isAvailable: true,
     },
     {
-        image: "",
+        image: "../src/images/poland-property.jpg",
         title: "Polish Cottage",
         price: 34,
         location: {
@@ -78,7 +79,7 @@ const properties = [
         isAvailable: false,
     },
     {
-        image: "",
+        image: "../src/images/london-property.jpg",
         title: "London Flat",
         price: 23,
         location: {
@@ -91,4 +92,15 @@ const properties = [
         isAvailable: true,
     },
 ];
+for (const property of properties) {
+    if (!propertyContainer)
+        break;
+    const card = document.createElement("div");
+    card.classList.add("card");
+    card.innerHTML = property.title;
+    const image = document.createElement("img");
+    image.setAttribute("src", property.image);
+    card.appendChild(image);
+    propertyContainer.appendChild(card);
+}
 export {};
